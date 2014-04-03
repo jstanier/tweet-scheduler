@@ -5,10 +5,10 @@ import org.joda.time.DateTime;
 
 public class Tweet implements Comparable<Tweet> {
 
-    DateTime time;
-    String content;
-    Integer retweets;
-    Integer favourites;
+    private DateTime time;
+    private String content;
+    private Integer retweets;
+    private Integer favourites;
 
     public DateTime getTime() {
         return time;
