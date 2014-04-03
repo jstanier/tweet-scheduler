@@ -34,7 +34,7 @@ public class TweetRankerTest {
     public void tweetRanker_givenAnEmptyInputList_returnsAnEmptyList() {
         List<Tweet> tweets = new ArrayList<Tweet>();
         List<Tweet> rankedTweets = tweetRanker.rankTweets(tweets);
-        assertTrue("The list contains no elements", rankedTweets.isEmpty());
+        assertTrue("The ranked tweets list should contain no elements", rankedTweets.isEmpty());
     }
 
     @Test
@@ -43,9 +43,10 @@ public class TweetRankerTest {
         Tweet tweet = createPlaceholderTweet();
         tweets.add(tweet);
         List<Tweet> rankedTweets = tweetRanker.rankTweets(tweets);
-        assertTrue("The list is the same size as the input (1)",
+        assertTrue("The ranked tweets list should be the same size as the input (1)",
                 rankedTweets.size() == tweets.size());
-        assertEquals("The tweet in the list is the same object", tweet, rankedTweets.get(0));
+        assertEquals("The tweet in the ranked tweets list should be the same object as input",
+                tweet, rankedTweets.get(0));
     }
 
     @Test
@@ -56,11 +57,12 @@ public class TweetRankerTest {
         Tweet unpopularTweet = createPlaceholderTweet();
         tweets.add(unpopularTweet);
         List<Tweet> rankedTweets = tweetRanker.rankTweets(tweets);
-        assertTrue("The list is the same size as the input (2)",
+        assertTrue("The list of ranked tweets should be the same size as the input (2)",
                 rankedTweets.size() == tweets.size());
-        assertEquals("The tweet at index 0 is the unpopular tweet", unpopularTweet,
+        assertEquals("The tweet at index 0 should be the unpopular tweet", unpopularTweet,
                 rankedTweets.get(0));
-        assertEquals("The tweet at index 1 is the popular tweet", popularTweet, rankedTweets.get(1));
+        assertEquals("The tweet at index 1 should be the popular tweet", popularTweet,
+                rankedTweets.get(1));
     }
 
     @Test
@@ -71,11 +73,11 @@ public class TweetRankerTest {
         Tweet favouritedTweet = createTweet(PLACEHOLDER_CONTENT, 0, 100);
         tweets.add(favouritedTweet);
         List<Tweet> rankedTweets = tweetRanker.rankTweets(tweets);
-        assertTrue("The list is the same size as the input (2)",
+        assertTrue("The list should be the same size as the input (2)",
                 rankedTweets.size() == tweets.size());
-        assertEquals("The tweet at index 0 is the favourited tweet", favouritedTweet,
+        assertEquals("The tweet at index 0 should be the favourited tweet", favouritedTweet,
                 rankedTweets.get(0));
-        assertEquals("The tweet at index 1 is the retweeted tweet", retweetedTweet,
+        assertEquals("The tweet at index 1 should be the retweeted tweet", retweetedTweet,
                 rankedTweets.get(1));
     }
 
