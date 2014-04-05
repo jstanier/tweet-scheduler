@@ -45,5 +45,10 @@
       <artifactId>mockito-all</artifactId>
       <version>1.9.5</version>
     </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>16.0.1</version>
+    </dependency>
   </dependencies>
 </project>
