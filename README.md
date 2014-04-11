@@ -46,6 +46,9 @@ Fri, 18 April 2014 17:00 - Facebook looks to drones, lasers and satellites for I
 Fri, 18 April 2014 20:00 - Nominations are open for the @Tech4GoodAwards. Do you know anyone who deserves some recognition? http://bit.ly/1eAjyQe
 Fri, 18 April 2014 21:00 - Claustrophobic? Don't ride Tokyo's subway during rush hour - http://ow.ly/vEHBc
 ```
+
+If there are too many tweets to fit into the schedule, then it will tell you how many didn't make the cut.
+
 ### Where did you get the statistics from?
 
 This current version uses statistics for the best times to post for click-through rate (CTR), which was found in a [Huffington Post article](http://www.huffingtonpost.com/belle-beth-cooper/a-scientific-guide-to-pos_b_4262571.html).
