@@ -9,7 +9,7 @@ A CSV file in the format
 
     rank,"The content of your tweet"
     
-Where rank is in numerical order of importance.
+Where rank is in numerical order of importance of the content you want to post.
 
 ### Output
 
