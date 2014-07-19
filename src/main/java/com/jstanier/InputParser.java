@@ -33,7 +33,7 @@ public class InputParser {
         } catch (FileNotFoundException e) {
             exitWithError("File not found at " + pathToCsvFile);
         } catch (IOException e) {
-            exitWithError("IO exception when reading" + pathToCsvFile);
+            exitWithError("IO exception when reading " + pathToCsvFile);
         }
         return csvData;
     }
