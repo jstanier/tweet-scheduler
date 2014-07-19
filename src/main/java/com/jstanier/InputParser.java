@@ -26,9 +26,7 @@ public class InputParser {
         List<TweetToSchedule> csvData = null;
         try {
             Reader reader = inputReader.getInputReader(pathToCsvFile);
-            CSVReader<TweetToSchedule> csvParser = new CSVReaderBuilder(reader)
-                    .strategy(CSVStrategy.UK_DEFAULT)
-                    .entryParser(new TweetToScheduleEntryParser()).build();
+            CSVReader<TweetToSchedule> csvParser = createCSVReader(reader);
             csvData = csvParser.readAll();
         } catch (FileNotFoundException e) {
             exitWithError("File not found at " + pathToCsvFile);
@@ -36,6 +34,12 @@ public class InputParser {
             exitWithError("IO exception when reading " + pathToCsvFile);
         }
         return csvData;
+    }
+
+    private CSVReader<TweetToSchedule> createCSVReader(Reader reader) {
+        return (CSVReader<TweetToSchedule>) new CSVReaderBuilder(reader)
+                .strategy(CSVStrategy.UK_DEFAULT)
+                .entryParser(new TweetToScheduleEntryParser()).build();
     }
 
     private void exitWithError(String error) {
