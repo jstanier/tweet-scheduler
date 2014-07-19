@@ -1,5 +1,7 @@
 package org.jstanier;
 
+import static org.mockito.Mockito.when;
+
 import java.io.StringReader;
 
 import org.junit.Test;
@@ -14,7 +16,7 @@ import com.jstanier.InputReader;
 
 @RunWith(MockitoJUnitRunner.class)
 public class InputParserTest {
-    
+
     private static final String ONE_LINE_VALID_CSV = "1,\"The content of your tweet\"";
 
     @Mock
@@ -25,8 +27,8 @@ public class InputParserTest {
 
     @Test
     public void parseInput_givenGivenOneCsvLine_thenOneTweetToScheduleIsReturned() {
-        Mockito.when(inputReader.getInputReader(Mockito.anyString()))
-                .thenReturn(new StringReader(ONE_LINE_VALID_CSV));
+        when(inputReader.getInputReader(Mockito.anyString())).thenReturn(
+                new StringReader(ONE_LINE_VALID_CSV));
         inputParser.parseInput(ONE_LINE_VALID_CSV);
     }
 }
