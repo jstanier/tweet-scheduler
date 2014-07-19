@@ -1,6 +1,5 @@
 package com.jstanier;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
@@ -24,14 +23,12 @@ public class InputParser {
 
     private List<TweetToSchedule> parseCsvFile(String pathToCsvFile) {
         List<TweetToSchedule> csvData = null;
+        Reader reader = inputReader.getInputReader(pathToCsvFile);
+        CSVReader<TweetToSchedule> csvParser = createCSVReader(reader);
         try {
-            Reader reader = inputReader.getInputReader(pathToCsvFile);
-            CSVReader<TweetToSchedule> csvParser = createCSVReader(reader);
             csvData = csvParser.readAll();
-        } catch (FileNotFoundException e) {
-            exitWithError("File not found at " + pathToCsvFile);
         } catch (IOException e) {
-            exitWithError("IO exception when reading " + pathToCsvFile);
+            throw new RuntimeException(e);
         }
         return csvData;
     }
@@ -40,10 +37,5 @@ public class InputParser {
         return (CSVReader<TweetToSchedule>) new CSVReaderBuilder(reader)
                 .strategy(CSVStrategy.UK_DEFAULT)
                 .entryParser(new TweetToScheduleEntryParser()).build();
-    }
-
-    private void exitWithError(String error) {
-        System.err.println(error);
-        System.exit(1);
     }
 }
