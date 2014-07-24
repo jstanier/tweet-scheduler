@@ -1,4 +1,4 @@
-tweet-scheduler [![Build Status](https://travis-ci.org/jstanier/tweet-scheduler.svg?branch=master)](https://travis-ci.org/jstanier/tweet-scheduler)
+tweet-scheduler [![Build Status](https://travis-ci.org/jstanier/tweet-scheduler.svg?branch=master)](https://travis-ci.org/jstanier/tweet-scheduler) [![Coverage Status](https://coveralls.io/repos/jstanier/tweet-scheduler/badge.png)](https://coveralls.io/r/jstanier/tweet-scheduler)
 ===============
 
 Work out when it's best to schedule your tweets. 
