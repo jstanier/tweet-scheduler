@@ -31,8 +31,7 @@ public class Main implements Closeable {
     }
 
     private static void exitWithError(String error) {
-        System.err.println(error);
-        System.exit(1);
+        throw new IllegalArgumentException(error);
     }
 
     public void close() throws IOException {
