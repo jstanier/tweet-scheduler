@@ -34,7 +34,8 @@ public class InputParser {
         return csvData;
     }
 
-    private CSVReader<TweetToSchedule> createCSVReader(Reader reader) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private CSVReader<TweetToSchedule> createCSVReader(Reader reader) {
         return (CSVReader<TweetToSchedule>) new CSVReaderBuilder(reader)
                 .strategy(CSVStrategy.UK_DEFAULT)
                 .entryParser(new TweetToScheduleEntryParser()).build();
